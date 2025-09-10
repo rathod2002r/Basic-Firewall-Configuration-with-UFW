@@ -1,0 +1,47 @@
+Video Script: Configuring a Basic Firewall Using UFW on Ubuntu
+
+[Intro Scene]
+Narration / Voiceover:
+"Welcome to this demo on configuring a basic firewall using UFW on Ubuntu. In this video, we’ll set up firewall rules, enable UFW, and verify the configuration."
+
+[Scene 1: Terminal open, updating system]
+Command on screen:
+sudo apt update
+sudo apt install ufw
+
+Voiceover:
+"First, let’s make sure UFW is installed. On most Ubuntu systems, it’s already available. If not, we can install it using apt."
+
+[Scene 2: Checking status]
+Command on screen:
+sudo ufw status
+
+Voiceover:
+"Next, we check the firewall status. By default, UFW is usually inactive."
+
+[Scene 3: Running configuration script]
+Command on screen:
+bash ufw_configuration.sh
+
+Voiceover:
+"We’ll now run our configuration script. This script resets UFW, applies default policies, and sets up rules for SSH, HTTPS, and DNS. It also blocks insecure HTTP traffic."
+
+[Scene 4: Showing expected output]
+Command on screen:
+sudo ufw status verbose
+
+Voiceover:
+"After enabling UFW, we can view the firewall rules. Here we see that SSH on port 22 is allowed, HTTP on port 80 is denied, HTTPS on port 443 is allowed, and DNS on port 53 is allowed."
+
+[Scene 5: Testing rules]
+Commands on screen:
+ssh username@localhost
+curl http://localhost
+netstat -tlnp
+
+Voiceover:
+"We can now test the rules. SSH works fine, but HTTP requests are blocked. Secure HTTPS traffic is still allowed. Using netstat, we can also verify the listening ports."
+
+[Final Scene: Closing note]
+Voiceover:
+"And that’s it! We’ve successfully configured a basic firewall using UFW on Ubuntu. Remember, always allow SSH before enabling UFW on remote systems to avoid locking yourself out. Thanks for watching!"
